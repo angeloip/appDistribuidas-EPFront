@@ -1,25 +1,17 @@
+import axios from "axios";
 const url = "http://localhost:5000/api/";
-const urlDish = url + "dishes/";
+const urlOferts = url + "oferts/";
 
-const getDishesRequest = () => axios.get(urlDish);
+export const getOfertsRequest = () => axios.get(urlOferts);
 
-const getDishRequest = (id) => axios.get(urlDish + id);
+export const getOfertRequest = (id) => axios.get(urlOferts + id);
 
-const deleteDishRequest = (id) => axios.delete(urlDish + id);
+export const deleteOfertRequest = (id) => axios.delete(urlOferts + id);
 
-const createDishRequest = (dish) => {
-  const form = new FormData();
-
-  for (let key in dish) {
-    form.append(key, dish[key]);
-  }
-
-  return axios.post(urlDish, form, {
-    headers: {
-      "Content-Type": "multipart/form-data"
-    }
-  });
+export const createOfertRequest = (ofert) => {
+  console.log(ofert);
+  return axios.post(urlOferts, ofert);
 };
 
-const updateDishRequest = (id, newInfoDish) =>
-  axios.put(urlDish + id, newInfoDish);
+export const updateOfertRequest = (id, newInfoOfert) =>
+  axios.put(urlOferts + id, newInfoOfert);

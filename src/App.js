@@ -1,7 +1,16 @@
-import "./App.css";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Ofertas } from "./Ofertas";
+import { TablaOfertas } from "./TablaOfertas";
 function App() {
-  return <div className="App">Hola</div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TablaOfertas />} />
+
+        <Route path="/oferts" element={<Ofertas />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
